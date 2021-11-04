@@ -1,0 +1,32 @@
+    {
+        "name": "Carrot",
+        "protein": 4,
+        "fat": 2,
+        "carb": 6,
+        "quantity": 30,
+        "daysToExpiry": 3
+    },
+    {
+        "name": "Potato",
+        "protein": 10,
+        "fat": 6,
+        "carb": 15,
+        "quantity": 10,
+        "daysToExpiry": 9
+    },
+    {
+        "name": "Beans",
+        "protein": 20,
+        "fat": 15,
+        "carb": 4,
+        "quantity": 15,
+        "daysToExpiry": 20
+    },
+    {
+        "name": "Avocado",
+        "protein": 4,
+        "fat": 10,
+        "carb": 6,
+        "quantity": 5,
+        "daysToExpiry": 2
+    }
