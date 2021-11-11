@@ -26,9 +26,9 @@ class Schedule(Resource):
                 json[i]["daysToExpiry"]))
 
         day = d.Day(food_items)
-        day.solve()
+        solution = day.solve()
         
-        return {'data': "success"}, 200
+        return solution, 200
     
 
 api.add_resource(Schedule, '/schedule') 

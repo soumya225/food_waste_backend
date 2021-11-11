@@ -1,4 +1,5 @@
 import numpy as np
+import math
 from scipy.optimize import linprog
 import food_item
 
@@ -34,7 +35,7 @@ class Day:
         for i in range(len(self.items)):
             bounds.append((0,self.items[i].quantity))
         print(bounds)
-        return bounds;
+        return bounds
 
 
     def solve(self):
@@ -47,15 +48,19 @@ class Day:
 
         x = result.x
 
-        print('\nSolution')
+        solution = {}
         for i in range(len(x)):
-            print('x' + str(i) + ': ' + str(x[i]))
+            solution[self.items[i].name] = math.floor(x[i])
+
+        print('\nSolution', solution)
+        return solution
+        
 
 
 
 
-day = Day([food_item.FoodItem("Beans", 10, 2, 0, 20, 15),
-           food_item.FoodItem("Rice", 2, 1, 15, 20, 20),
-           food_item.FoodItem("Avocado", 1, 5, 3, 20, 20),
-           food_item.FoodItem("Bread", 2, 0, 10, 30, 7)])
-day.solve()
+#day = Day([food_item.FoodItem("Beans", 10, 2, 0, 20, 15),
+#           food_item.FoodItem("Rice", 2, 1, 15, 20, 20),
+#           food_item.FoodItem("Avocado", 1, 5, 3, 20, 20),
+#           food_item.FoodItem("Bread", 2, 0, 10, 30, 7)])
+#day.solve()
