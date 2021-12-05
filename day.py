@@ -4,7 +4,7 @@ from scipy.optimize import linprog
 import food_item
 
 class Day:
-    minProtein = -100.0
+    minProtein = -100
     minFat = -50
     minCarb = -300
     
@@ -44,15 +44,16 @@ class Day:
         b_ub = np.array([self.minProtein, self.minFat, self.minCarb])
 
         bounds = self.makeBounds()
-        result = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds)
+        self.result = linprog(c, A_ub=A_ub, b_ub=b_ub, bounds=bounds)
 
-        x = result.x
+        print(self.result);
+
+        x = self.result.x
 
         solution = {}
         for i in range(len(x)):
-            solution[self.items[i].name] = math.floor(x[i])
+            solution[self.items[i].name] = round(x[i])
 
-        print('\nSolution', solution)
         return solution
         
 
@@ -61,6 +62,6 @@ class Day:
 
 #day = Day([food_item.FoodItem("Beans", 10, 2, 0, 20, 15),
 #           food_item.FoodItem("Rice", 2, 1, 15, 20, 20),
-#           food_item.FoodItem("Avocado", 1, 5, 3, 20, 20),
-#           food_item.FoodItem("Bread", 2, 0, 10, 30, 7)])
+#           food_item.FoodItem("Avocado", 2, 5, 5, 20, 20),
+#           food_item.FoodItem("Bread", 4, 0, 10, 30, 7)])
 #day.solve()
